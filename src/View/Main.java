@@ -19,6 +19,8 @@ public class Main implements ActionListener {
     public static String selected = "";
     static String[] cols = {"内容","来源","初义","今义","场景","造句"};
     static Object[][] objs;
+    JLabel r_t;
+    JLabel selected_l;
     static DTable dt = new DTable(objs, cols);
     static JTable table = new JTable(dt);
     JScrollPane sp = new JScrollPane(table);
@@ -36,9 +38,9 @@ public class Main implements ActionListener {
         pan_button.setLayout(flowLayout);
 
         JLabel r = new JLabel("相关词");
-        JLabel r_t = new JLabel();
+        r_t = new JLabel();
         JLabel l = new JLabel("当前选中：");
-        JLabel selected_l = new JLabel("none");
+        selected_l = new JLabel("none");
 
         JButton add_but = new JButton("增");
         JButton del_but = new JButton("删");
@@ -115,6 +117,8 @@ public class Main implements ActionListener {
         table.setModel(dt);
         table.repaint();
         selected = "";
+        r_t.setText("");
+        selected_l.setText("");
     }
 }
 

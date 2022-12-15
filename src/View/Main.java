@@ -4,7 +4,6 @@ import View.Model.TextRenderer;
 import View.Verify.DeleteVerify;
 import com.Controller.GeneralController;
 import com.Utils.ConvertUtil;
-import com.pojo.Speaks;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
 
 public class Main implements ActionListener {
     public static GeneralController gc = new GeneralController();
@@ -112,8 +110,7 @@ public class Main implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        List<Speaks> speak_list = gc.getAllSpeaks();
-        DTable dt = new DTable(ConvertUtil.toObjArray(speak_list), cols);
+        DTable dt = new DTable(ConvertUtil.toObjArray(gc.getAllSpeaks()), cols);
         table.setModel(dt);
         table.repaint();
         selected = "";

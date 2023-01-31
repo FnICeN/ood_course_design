@@ -31,6 +31,11 @@ public class RelationsDAOImpl extends BaseDAO<Relations> implements RelationsDAO
     }
 
     @Override
+    public Relations getRelationObjByRelation(String rela) {
+        return super.getOneObj("select * from relation where rela=?", rela);
+    }
+
+    @Override
     public List<Relations> getRelations(String query, Object... params) {
         return super.getSeriesObj(query, params);
     }

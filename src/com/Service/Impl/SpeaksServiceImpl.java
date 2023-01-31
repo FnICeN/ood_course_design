@@ -1,7 +1,9 @@
 package com.Service.Impl;
 
 import com.DAO.BaseDAO;
+import com.DAO.Impl.RelationsDAOImpl;
 import com.DAO.Impl.SpeaksDAOImpl;
+import com.DAO.RelationsDAO;
 import com.DAO.SpeaksDAO;
 import com.Service.SpeaksService;
 import com.pojo.Speaks;
@@ -10,6 +12,7 @@ import java.util.List;
 
 public class SpeaksServiceImpl extends BaseDAO<Speaks> implements SpeaksService {
     private SpeaksDAO sdi = new SpeaksDAOImpl();
+    private RelationsDAO rdi = new RelationsDAOImpl();
 
     @Override
     public boolean addSpeak(String content, String origin, String origin_mean, String now_mean, String using, String sentence) {

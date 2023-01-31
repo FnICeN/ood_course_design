@@ -4,8 +4,11 @@ import com.Service.Impl.RelationsServiceImpl;
 import com.Service.Impl.SpeaksServiceImpl;
 import com.Service.RelationsService;
 import com.Service.SpeaksService;
+import com.pojo.Relations;
 import com.pojo.Speaks;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GeneralController {
@@ -20,6 +23,19 @@ public class GeneralController {
     }
     public String getRelationsByContent(String content) {
         return rsi.getRelationsByContent(content);
+    }
+    public String[] searchByContentOrRelation(String m) {
+        Speaks speak_direct = ssi.getSpeakByContent(m);
+        if(speak_direct == null) {
+            Relations relation = rsi.getRelationObjByRela(m);
+            if(relation != null) {
+                Speaks speak_other;
+                speak_other = ssi.getSpeakByContent(relation.getContent());
+                return speak_other.getFields();
+            }
+            return null;
+        }
+        return speak_direct.getFields();
     }
     public boolean addSpeakAndRelation(String content, String origin, String origin_mean, String now_mean, String using, String sentence, String relations) {
         boolean addRelation = true;

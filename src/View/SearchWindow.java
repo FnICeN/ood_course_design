@@ -33,7 +33,7 @@ public class SearchWindow implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String[] arr = Main.gc.getSpeakArrayByContent(content.getText());
+        String[] arr = Main.gc.searchByContentOrRelation(content.getText());
         DTable dt = new DTable(new Object[][]{arr}, Main.cols);
         Main.table.setModel(dt);
         Main.table.repaint();

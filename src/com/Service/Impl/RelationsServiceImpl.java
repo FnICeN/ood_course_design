@@ -24,6 +24,11 @@ public class RelationsServiceImpl extends BaseDAO<Relations> implements Relation
     }
 
     @Override
+    public Relations getRelationObjByRela(String rela) {
+        return rdi.getRelationObjByRelation(rela);
+    }
+
+    @Override
     public boolean addRelationsBySpeakContent(String content, String[] relations) {
         for(String rela : relations) {
             Relations r = new Relations();

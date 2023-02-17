@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnUtil extends ThreadLocal{
     private static String name = "root";
-    private static String pwd = "647252";
+    private static String pwd = "password";
     private static String url = "jdbc:mysql://localhost:3306/ood?useOldAliasMetadataBehavior=true";
     private static ThreadLocal<Connection> threadLocal = new ThreadLocal<>();
 
